@@ -7,6 +7,7 @@ CREATE TABLE users(
     id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(16) NOT NULL,
     password VARCHAR(60) NOT NULL,
+    email VARCHAR(60) NOT NULL,
     fullname VARCHAR (100) NOT NULL,
     role ENUM('user','admin'),
     name VARCHAR(100),
@@ -23,24 +24,4 @@ CREATE TABLE transaction (
     user_id INT,
     PRIMARY KEY (id),
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
--- categories TABLE --
-CREATE TABLE categories (
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id)
-);
-
--- expenses TABLE -- 
-CREATE TABLE expenses (
-    id INT NOT NULL AUTO_INCREMENT,
-    title VARCHAR(150) NOT NULL,
-    amount DECIMAL(10,2) NOT NULL,
-    date DATE NOT NULL,
-    category_id INT,
-    user_id INT,
-    PRIMARY KEY (id),
-    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES categories(id),
-    CONSTRAINT fk_expenses_user FOREIGN KEY (user_id) REFERENCES users(id)
 );

@@ -12,9 +12,9 @@ UserCtrl.getUsers = async (req, res ) => {
 
 UserCtrl.registerUsers = async (req, res) => {
 
-    const { username, password, fullname, role } = req.body;
+    const { username, password, email ,fullname, role } = req.body;
 
-    const newUser = new User(username, password, fullname, role);
+    const newUser = new User(username, password, email, fullname, role);
 
     console.log(newUser);
     

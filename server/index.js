@@ -18,8 +18,9 @@ app.use(cors({
 
 // Routes
 app.use('/api/users' , require('./routes/users.routes'));
-app.use(require('./routes/index.routes'));
-app.use(require('./routes/authentication.routes'));
+app.use('/api/transactions', require('./routes/transactions.routes'));
+// app.use(require('./routes/index.routes'));
+// app.use(require('./routes/authentication.routes'));
 
 // Starting Server
 app.listen(app.get('port'), () => {
